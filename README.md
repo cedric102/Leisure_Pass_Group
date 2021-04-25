@@ -18,6 +18,7 @@
    6) Database : The table is called 'entity', but it represents the list of products.
 
 ## Endpoints :
+ - The application can be managed with the buttons at the top-left of the GUI ( Pop , Sort , View , Clear ). Each call their respective endpoint
  - localhost:8017/pop : it generates the desired data from the xlsx file and saves it in the persistence layer. The result is returned to the View as a table.
  - localhost:8017/sort : it sorts the database by name and then by category. The result is returned to the View as a table.
  - localhost:8017/view : it extracts the data from the persistence layer and returns the result to the View as a table.

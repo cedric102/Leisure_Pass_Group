@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  
+
+  <body>
+
+    <button><a th:href="@{/pop}">pop</a></button>
+    <button><a th:href="@{/sort}">sort</a></button>
+    <button><a th:href="@{/view}">view</a></button>
+    <button><a th:href="@{/clear}">clear</a></button>
+
+    <table>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Category Id</th>
+        <th>Creation Date</th>
+        <th>Update Date</th>
+        <th>Last Purchased Date</th>
+      </tr>
+      <tr th:each="article1: ${articleList}">
+        <td th:text="${article1.id}"></td>
+        <td th:text="${article1.name}"></td>
+        <td th:text="${article1.description}"></td>
+        <td th:text="${article1.categoryId}"></td>
+        <td th:text="${article1.creationDate}"></td>
+        <td th:text="${article1.updateDate}"></td>
+        <td th:text="${article1.lastPurchasedDate}"></td>
+      </tr>
+    </table>
+
+
+  </body>
+
+  <style>
+    button {
+      border: 1px solid black;
+      background-color: blue;
+      border-radius: 5px;
+      padding: 10px;
+    }
+    button a {
+      color: white;
+    }
+  </style>
+</html>
+

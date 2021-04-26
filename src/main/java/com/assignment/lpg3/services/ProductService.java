@@ -47,7 +47,8 @@ public class ProductService {
      * Method to generatr the Catrgory Map
      * Loop through the input path and map the Category_Id to the Category Name
      * 
-     * Return void
+     * @PARAM Path to an *.csv file
+     * @Return void
      */
     private void generateCategoryMap( String path ) {
         try(BufferedReader br = new BufferedReader(new FileReader(path))) {
@@ -71,8 +72,8 @@ public class ProductService {
      * Loop through he input path , generate the corresponding list
      * and store the result in the persistent layer
      * 
-     * Input: Path to an *.xlsx file
-     * Return void
+     * @PARAM Path to an *.xlsx file
+     * @Return void
      */
     private void populateProductList( String path ) {
 
@@ -140,6 +141,7 @@ public class ProductService {
     /**
      * Extract all the elements from the database as they are through the persistence layer
      * 
+     * @Param : None
      * @return the product list
      */
     public List<ProductDao> getAllTheElementsFromTheTable() {
@@ -157,6 +159,7 @@ public class ProductService {
      * Potential change :
      *  - Make the Path as an argument of Pop() so that the paths could be managed by the controller.
      * 
+     * @Param: None
      * @return the product list as they are present in the database through the persistence layer
      * @throws FileNotFoundException
      */
@@ -177,6 +180,7 @@ public class ProductService {
      * 
      * Get the productList and sort it by Category and then by Name
      * 
+     * @Param: Product List extracted from the Database
      * @return the product list as they are present in the database through the persistence layer
      * @throws FileNotFoundException
      */
@@ -194,6 +198,7 @@ public class ProductService {
      * 4) Save the sorted list in the persistence layer
      * 5) Return the sorted productList
      * 
+     * @Param: None
      * @return the sorted productList
      */
     public List<ProductDao> Sort() {
@@ -219,6 +224,7 @@ public class ProductService {
      * 4) Save the sorted list in the persistence layer
      * 5) Return the sorted productList
      * 
+     * @Param: sortColumn - Contains the column feature name to be sorted by
      * @return the sorted productList
      */
     public List<ProductDao> singleSort( String sortColumn ) {
@@ -244,6 +250,7 @@ public class ProductService {
     /**
      * View the productList as it exists in the database through the persistence laer
      * 
+     * @Param: None
      * @return the list of productList
      */
     public List<ProductDao> View() {
@@ -254,6 +261,7 @@ public class ProductService {
     /**
      * Clear the productList from the database throug the persistence layer
      * 
+     * @Param: None
      * @return the list of productList ( Empty )
      */
     public List<ProductDao> Clear() {

@@ -1,4 +1,4 @@
-package com.assignment.lpg3.models.data;
+package com.assignment.lpg3.dao_management.dao;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

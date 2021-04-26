@@ -1,8 +1,8 @@
-package com.assignment.lpg3.models;
+package com.assignment.lpg3.dao_management.repository;
 
 import java.util.List;
 
-import com.assignment.lpg3.models.data.ProductDao;
+import com.assignment.lpg3.dao_management.dao.ProductDao;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class Lpg3Application {
 
 	public static void main(String[] args) {
-		SpringApplication.run(Lpg3Application.class, args);
+		SpringApplication.run(Lpg3Application.class, args); 
 	}
 
 }

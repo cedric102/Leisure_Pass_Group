@@ -3,8 +3,7 @@ package com.assignment.lpg3.controller;
 import java.io.IOException;
 import java.util.List;
 
-import com.assignment.lpg3.models.data.ProductDao;
-
+import com.assignment.lpg3.dao_management.dao.ProductDao;
 import com.assignment.lpg3.services.ProductService;
 
 import org.springframework.beans.factory.annotation.Autowired;

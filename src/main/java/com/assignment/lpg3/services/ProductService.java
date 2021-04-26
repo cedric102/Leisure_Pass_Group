@@ -13,10 +13,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.TimeZone;
 
-import com.assignment.lpg3.models.ProductDaoRepository;
-import com.assignment.lpg3.models.data.ProductDao;
+import com.assignment.lpg3.dao_management.dao.ProductDao;
+import com.assignment.lpg3.dao_management.repository.ProductDaoRepository;
 
-import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Cell; 
 import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
@@ -162,8 +162,8 @@ public class ProductService {
      */
     public List<ProductDao> Pop( ) throws FileNotFoundException {
 
-        String categoryPath  = "src/main/java/com/assignment/lpg3/data/categories.csv";
-        String productsPath = "src/main/java/com/assignment/lpg3/data/products.xlsx";
+        String categoryPath  = "src/main/java/com/assignment/lpg3/input_files/categories.csv";
+        String productsPath = "src/main/java/com/assignment/lpg3/input_files/products.xlsx";
 
         generateCategoryMap( categoryPath );
         populateProductList( productsPath );

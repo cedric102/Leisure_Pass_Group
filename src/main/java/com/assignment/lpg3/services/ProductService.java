@@ -43,6 +43,10 @@ public class ProductService {
 
     String[] categoryMap;
 
+    public ProductService( ProductDaoRepository productDaoRepository ) {
+        this.productDaoRepo = productDaoRepository;
+    }
+
     /**
      * Method to generatr the Catrgory Map
      * Loop through the input path and map the Category_Id to the Category Name

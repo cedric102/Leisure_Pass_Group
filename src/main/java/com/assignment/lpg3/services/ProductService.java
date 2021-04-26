@@ -25,8 +25,8 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Iterator;
-import java.util.List;
+import java.util.Iterator; 
+import java.util.List; 
 
 @Service
 public class ProductService {
@@ -181,18 +181,8 @@ public class ProductService {
      * @throws FileNotFoundException
      */
     private void performTheSorting(List<ProductDao> productList) {
+        
         productList.sort( Comparator.comparing(ProductDao::getName).thenComparing(ProductDao::getCategoryId));
-
-        // Collections.sort( productList , new Comparator() {
-        //     public int compare( Object e1 , Object e2 ) {
-        //         int cmp = (((ProductsDao) e1 ).getName()).compareTo(((ProductsDao) e2 ).getName());
-        //         if( cmp != 0 )
-        //             return cmp;
-
-        //         cmp = (((ProductsDao) e1 ).getCategoryId()).compareTo(((ProductsDao) e2 ).getCategoryId());
-        //         return cmp;
-        //     }
-        // });
     }
 
     /**

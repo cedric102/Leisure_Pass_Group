@@ -8,6 +8,7 @@ import com.assignment.lpg3.services.ProductService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
@@ -79,6 +80,24 @@ public class ProductController {
         ModelAndView mv = new ModelAndView();
 
         List<ProductDao> innerList = productService.Sort();
+
+        mv.setViewName("view");
+        mv.addObject("articleList" , innerList);
+        return mv;
+    }
+
+    /**
+     * Sort the data from the persistence layer.
+     * 
+     * @return ModelAndView with the productsList to be listed in the View
+     * @throws IOException
+     */
+    @GetMapping("/sort_single/{sort}")
+    public ModelAndView singleSort( @PathVariable String sort ) throws IOException {
+
+        ModelAndView mv = new ModelAndView();
+
+        List<ProductDao> innerList = productService.singleSort( sort );
 
         mv.setViewName("view");
         mv.addObject("articleList" , innerList);

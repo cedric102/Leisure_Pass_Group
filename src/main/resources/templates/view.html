@@ -5,16 +5,20 @@
   <body>
 
     <button><a th:href="@{/pop}">pop</a></button>
-    <button><a th:href="@{/sort}">sort</a></button>
     <button><a th:href="@{/view}">view</a></button>
     <button><a th:href="@{/clear}">clear</a></button>
+    <div></div>
+    <button><a th:href="@{/sort}">Sort Mix</a></button>
+    <button><a th:href="@{/sort_single/Id}">Id</a></button>
+    <button><a th:href="@{/sort_single/Name}">Name</a></button>
+    <button><a th:href="@{/sort_single/Category}">Category</a></button>
 
     <table>
       <tr>
         <th>ID</th>
         <th>Name</th>
         <th>Description</th>
-        <th>Category Id</th>
+        <th>Category</th>
         <th>Creation Date</th>
         <th>Update Date</th>
         <th>Last Purchased Date</th>

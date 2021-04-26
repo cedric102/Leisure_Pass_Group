@@ -2,7 +2,8 @@
 
 ## Instruction :
  - Extract a list of products from the Persistence layer and list it in the view.
- - Implement a sorting algorithm by Name and then by Cathegory.
+ - Implement a sorting algorithm by Category and then by Name.
+ - Implement a sorting algorithm to sort individually by Id , Name , and Category
  - The data is persistent, so it should be retrievable even after the application reboots.
 
 ## Architecture :
@@ -18,11 +19,13 @@
    6) Database : The table is called 'entity', but it represents the list of products.
 
 ## Endpoints :
- - The application can be managed with the buttons at the top-left of the GUI ( Pop , Sort , View , Clear ). Each call their respective endpoint
+ - The application can be managed with the buttons at the top-left of the GUI ( Pop , View , Clear ). Each call their respective endpoint
+ - On the next line , there are other links dedicated to sorting ( Sort Mix , id , name , Category )
  - localhost:8017/pop : it generates the desired data from the xlsx file and saves it in the persistence layer. The result is returned to the View as a table.
  - localhost:8017/sort : it sorts the database by name and then by category. The result is returned to the View as a table.
  - localhost:8017/view : it extracts the data from the persistence layer and returns the result to the View as a table.
  - localhost:8017/clear : it clears the data from the persistence layer and returns the result to the View as an empty table.
+ - localhost:8017/sort_single/{sort} : it sorts the data from the persistence layer individually by Id , Name , and Category and returns the result to the View as an empty table.
 
  ## Note :
- - The Category_Id needs to be mapped to its appropriate String.
+ - The Category_Id is mapped to its appropriate String.

@@ -84,8 +84,8 @@ public class ProductService {
          * 2) Store the array content on a ProductDao
          * 3) Insert the ProductDao to the to the Database through the ProductDAORepository
          */
-        try ( FileInputStream excelFile = new FileInputStream( new File( path ) );
-        Workbook workbook = new XSSFWorkbook( excelFile ); ) {
+        try (   FileInputStream excelFile = new FileInputStream( new File( path ) );
+                Workbook workbook = new XSSFWorkbook( excelFile ); ) {
             
             Sheet datatypeSheet = workbook.getSheetAt(0);
             Iterator<Row> iterator = datatypeSheet.iterator();
@@ -175,14 +175,14 @@ public class ProductService {
     /**
      * Sort the Product List
      * 
-     * Get the productList and sort it by Name and then by Category
+     * Get the productList and sort it by Category and then by Name
      * 
      * @return the product list as they are present in the database through the persistence layer
      * @throws FileNotFoundException
      */
     private void performTheSorting(List<ProductDao> productList) {
         
-        productList.sort( Comparator.comparing(ProductDao::getName).thenComparing(ProductDao::getCategoryId));
+        productList.sort( Comparator.comparing(ProductDao::getCategoryId).thenComparing(ProductDao::getName));
     }
 
     /**
@@ -190,7 +190,7 @@ public class ProductService {
      * 
      * 1) Get the productList as it is in the database through the persistence layer
      * 2) erase the database through the persistence layer
-     * 3) perform the sorting of the list by Name and then by Category
+     * 3) perform the sorting of the list by Category and then by Name
      * 4) Save the sorted list in the persistence layer
      * 5) Return the sorted productList
      * 
@@ -202,6 +202,37 @@ public class ProductService {
         productDaoRepo.deleteAll();
 
         performTheSorting(productList);
+
+        for( ProductDao e : productList )
+            productDaoRepo.save( e );
+
+        return productList;
+        
+    }
+
+    /**
+     * Sort the list by Name and then by Category in the Database through the persistence layer.
+     * 
+     * 1) Get the productList as it is in the database through the persistence layer
+     * 2) erase the database through the persistence layer
+     * 3) perform the sorting of the list by the defined feature ( id , Name , or Category )
+     * 4) Save the sorted list in the persistence layer
+     * 5) Return the sorted productList
+     * 
+     * @return the sorted productList
+     */
+    public List<ProductDao> singleSort( String sortColumn ) {
+
+        List<ProductDao> productList = getAllTheElementsFromTheTable();
+        productDaoRepo.deleteAll();
+
+        // Perform the sorting
+        if( sortColumn.equals("Id") )
+            productList.sort( Comparator.comparing(ProductDao::getId) );
+        else if( sortColumn.equals("Name") )
+            productList.sort( Comparator.comparing(ProductDao::getName) );
+        else if( sortColumn.equals("Category") )
+            productList.sort( Comparator.comparing(ProductDao::getCategoryId) );
 
         for( ProductDao e : productList )
             productDaoRepo.save( e );
